@@ -1,0 +1,21 @@
+services:
+  web:
+    container_name: meow-on-rails
+    build: .
+    image: puriwt/meow-on-rails
+    command: bash -c "rm -f tmp/pids/server.pid&& bundle exec rails db:migrate && bundle exec rails s -b '0.0.0.0'"
+      - RAILS_ENV=development
+      - SECRET_KEY_BASE=${SECRET_KEY_BASE}
+      - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - app-networks
+    volumes:
+      - .:/rails
+
+networks:
+  app-networks:
