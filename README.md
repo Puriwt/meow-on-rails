@@ -91,3 +91,10 @@
 # pull your image from docker hub
 - pull your image: sudo docker pull yourDockerHubName/yourImageName
 - run: sudo docker images (then you will see your images)
+
+# to run your image in VM
+- cd to your work space
+- run: sudo docker compose up (to start your server project)
+- run: sudo docker compose down (to close your server)
+
+## --------- deployment ------------
