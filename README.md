@@ -58,3 +58,8 @@
 - go into your project (cd)
 - run following command begin of Install using the apt repository (https://docs.docker.com/engine/install/ubuntu/)
 - until you finish step 6
+
+# set up file on VM
+- create file docker-compose.yml (nano docker-compose.yml)
+- wright docker-compose.yml following in this project
+- create file .env (nano .env)
