@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# init github
+- create your repository 
+- git init
+- git add .
+- git commit -m "Initial commit"
+- git remote add origin https://github.com/your-username/repository-name.git
+- git branch -M main
+- git push -u origin main
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# gen model
+- rails generate model [table_name] [colunm1]:[type] [colunm2]:[type]
+- rails db:migrate

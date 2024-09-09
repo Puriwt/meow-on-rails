@@ -1,0 +1,53 @@
+<div class="container">
+<%= form_with(model: @user, url: @user.persisted? ? user_path(@user.id) : "/submit_form", method: @user.persisted? ? :patch : :post, local: true) do |form| %>
+  <div class="form">
+    <h1><%= @sending %></h1>
+    <div class="group">
+      <div class="form-group">
+        <%= form.label :first_name, "First Name" %>
+        <%= form.text_field :first_name, class: "input-field", required: true %>
+      </div>
+      <div class="form-group">
+        <%= form.label :last_name, "Last Name" %>
+        <%= form.text_field :last_name, class: "input-field", required: true %>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="form-group">
+        <%= form.label :birthdate, "Birthdate" %>
+        <%= form.date_field :birthdate, class: "input-field", required: true %>
+      </div>
+      <div class="form-group">
+        <%= form.label :gender, "Gender" %><br>
+            <div>
+            <%= form.radio_button :gender, "Male", required: true %> <%= form.label :gender_male, "Male" %>
+            <%= form.radio_button :gender, "Female", required: true %> <%= form.label :gender_female, "Female" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="form-group">
+        <%= form.label :email, "Email" %>
+        <%= form.email_field :email, class: "input-field", required: true %>
+      </div>
+      <div class="form-group">
+        <%= form.label :phone, "Phone Number" %>
+        <%= form.telephone_field :phone, class: "input-field", required: true %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :subject, "Subject", required: true %>
+      <%= form.select :subject, options_for_select([['General Inquiry', 'general_inquiry'], ['Support', 'support'], ['Feedback', 'feedback']]), { prompt: 'Choose a subject' }, { class: "input-field" } %>
+    </div>
+
+    <div class="form-group cancle">
+        <%= button_to 'Cancel', '#', class: (@user.new_record? ? 'hidden' : 'btn-primary btn-delete') %>
+        <%= form.submit @user.new_record? ? "Submit" : "Update", class: "btn-primary" %>
+    </div>
+  </div>
+<% end %>
+
+</div>
