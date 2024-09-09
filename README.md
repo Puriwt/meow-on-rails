@@ -12,3 +12,14 @@
 # gen model
 - rails generate model [table_name] [colunm1]:[type] [colunm2]:[type]
 - rails db:migrate
+
+# edit table
+- rename_column :table_name, :old_column_name, :new_column_name (to rename column)
+- rename_table :old_table_name, :new_table_name
+- remove_column :table_name, :column_name, :column_type
+- drop_table :table_name
+- create_table :table_name do |t|
+    t.string :column1_name
+    t.integer :column2_name
+    t.timestamps
+- add_column :users, :new_column, :string
