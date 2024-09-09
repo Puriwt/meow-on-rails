@@ -1,4 +1,7 @@
-# puriwt-co-op-tests-ruby-on-rails
+# meow-on-rail
+- version 2 of rails this is new repository from puriwt-co-op-tests-ruby-on-rails because install version of rails incorect
+- if wanna see all old commited it's in this: https://github.com/Puriwt/puriwt-co-op-tests-ruby-on-rails.git
+- (start in 5-6 sep.)
 
 # start rails 
 - rails s or rails server
