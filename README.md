@@ -41,3 +41,12 @@
 - create new key pair (enter name)
 - check Allow HTTPS traffic from the internet
 - click Launch instance
+
+## connect VM to local
+- (open your instance and press connect)
+- open terminal
+- go to locate your private key file. (cd)
+- run : chmod 400 "keyFileName.pem"
+- connect with step 4 in web.
+
+# (remark in VM we have to use sudo in almost all command) #
