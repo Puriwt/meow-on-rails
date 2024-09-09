@@ -72,3 +72,13 @@
 - run: bundle install
 - run: rails secret in terminal then get key into SECRET_KEY_BASE on VM
 - get master.key in config/master.key then get into RAILS_MASTER on VM
+
+# set up Github
+- go to your project
+- open setting
+- click Secrets and variables
+- click Action
+- click New repository secrets
+- type docker name to DOCKER_USERNAME
+- Add secret
+- then do the same thing with DOCKER_PASSWORD
