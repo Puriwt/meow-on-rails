@@ -23,3 +23,11 @@
     t.integer :column2_name
     t.timestamps
 - add_column :users, :new_column, :string
+
+# to create new page run this comman
+- rails g controller [controller name] [page name]
+- ex. rails g controller registation index
+
+# to set page into first page 
+- /config/routes.rb
+- add root "[controller name]#[page name]"
