@@ -63,3 +63,7 @@
 - create file docker-compose.yml (nano docker-compose.yml)
 - wright docker-compose.yml following in this project
 - create file .env (nano .env)
+
+# set up docker and ci
+- wright docker-compose.yml
+- wright .github/workflows/ci.yml
