@@ -67,3 +67,8 @@
 # set up docker and ci
 - wright docker-compose.yml
 - wright .github/workflows/ci.yml
+
+# set up file on your project
+- run: bundle install
+- run: rails secret in terminal then get key into SECRET_KEY_BASE on VM
+- get master.key in config/master.key then get into RAILS_MASTER on VM
