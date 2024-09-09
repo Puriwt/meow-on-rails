@@ -87,3 +87,7 @@
 - setup your ci file
 - push some thing to github to tricker Git Acctions
 - wait for Git Acctions passed
+
+# pull your image from docker hub
+- pull your image: sudo docker pull yourDockerHubName/yourImageName
+- run: sudo docker images (then you will see your images)
