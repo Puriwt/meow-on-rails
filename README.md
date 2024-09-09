@@ -82,3 +82,8 @@
 - type docker name to DOCKER_USERNAME
 - Add secret
 - then do the same thing with DOCKER_PASSWORD
+
+# prepare your project to run on VM
+- setup your ci file
+- push some thing to github to tricker Git Acctions
+- wait for Git Acctions passed
