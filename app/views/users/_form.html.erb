@@ -44,8 +44,8 @@
     </div>
 
     <div class="form-group cancle">
-        <%= button_to 'Cancel', '#', class: (@user.new_record? ? 'hidden' : 'btn-primary btn-delete') %>
         <%= form.submit @user.new_record? ? "Submit" : "Update", class: "btn-primary" %>
+        <%= button_to 'Cancel', '#', class: (@user.new_record? ? 'hidden' : 'btn-primary btn-delete') %>
     </div>
   </div>
 <% end %>
