@@ -1,4 +1,7 @@
-# README
+# puriwt-co-op-tests-ruby-on-rails
+
+# start rails 
+- rails s or rails server
 
 # init github
 - create your repository 
@@ -12,6 +15,10 @@
 # gen model
 - rails generate model [table_name] [colunm1]:[type] [colunm2]:[type]
 - rails db:migrate
+
+# migrate database
+- rails g migration [descripe]
+- rails db:migrate (to save migrade database after change)
 
 # edit table
 - rename_column :table_name, :old_column_name, :new_column_name (to rename column)
