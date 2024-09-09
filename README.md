@@ -31,3 +31,13 @@
 # to set page into first page 
 - /config/routes.rb
 - add root "[controller name]#[page name]"
+
+## --------- deployment ------------
+
+## registor EC2 in AWS
+- click Launch instance
+- create name
+- should OS (for me Mac OS)
+- create new key pair (enter name)
+- check Allow HTTPS traffic from the internet
+- click Launch instance
