@@ -6,6 +6,13 @@
 # start rails 
 - rails s or rails server
 
+# to run by don't use docker compose up
+- bundle install
+- rails db:migrate 
+- docker build -t [container_name] .
+- rails secret
+- docker run -e SECRET_KEY_BASE=[secret_key] -e RAILS_ENV=development -p 3000:3000 [container_name]:latest
+
 # init github
 - create your repository 
 - git init
