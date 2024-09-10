@@ -40,7 +40,7 @@
 
     <div class="form-group">
       <%= form.label :subject, "Subject", required: true %>
-      <%= form.select :subject, options_for_select([['General Inquiry', 'general_inquiry'], ['Support', 'support'], ['Feedback', 'feedback']]), { prompt: 'Choose a subject' }, { class: "input-field" } %>
+      <%= form.select :subject, options_for_select([['Computer Science', 'computer_science'],['Math', 'math'], ['Science', 'science'], ['Social Sciences', 'social_sciences'], ['English', 'english']]), { prompt: 'Choose a subject' }, { class: "input-field" } %>
     </div>
 
     <div class="form-group cancle">
