@@ -1,0 +1,6 @@
+<%= form_with url: users_path, method: :get, local: true do %>
+  <%= label_tag :query, "Search:" %>
+  <%= text_field_tag :query, params[:query], placeholder: "Search users..." %>
+  <%= submit_tag "Search" %>
+<% end %>
+

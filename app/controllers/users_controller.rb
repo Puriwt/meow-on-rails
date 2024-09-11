@@ -10,6 +10,7 @@ class UsersController < ApplicationController
         @users = @users.where(subject: params[:subject])
       end
     end
+    @users = User.search(params[:query])
   end
 
   def create
