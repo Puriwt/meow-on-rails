@@ -1,7 +1,7 @@
 <div class="group-view">
-  <div class="group-card">
+  <div id="card" class="group-card">
     <% @users.each do |user| %>
-      <div class="card">
+      <div id="<%= dom_id(user) %>" class="card">
         <div class="head">
           <div class="avata">
             <%= user.first_name[0].upcase if user.first_name.present? %>
