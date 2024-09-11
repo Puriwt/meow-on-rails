@@ -6,5 +6,6 @@
   <%= submit_tag 'Science', name: :subject, value: 'Science', class: "btn_filter #{'selected' if params[:subject] == 'Science'}" %>
   <%= submit_tag 'Social Sciences', name: :subject, value: 'Social Sciences', class: "btn_filter #{'selected' if params[:subject] == 'Social Sciences'}" %>
   <%= submit_tag 'English', name: :subject, value: 'English', class: "btn_filter #{'selected' if params[:subject] == 'English'}" %>
+  <% end %>
+  <%= render "search_bar"%>
 </div>
-<% end %>
