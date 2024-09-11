@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     @sending = "Register Form"
     @users = User.all
     @user = User.new
+    @users = User.search(params[:query])
     if params[:subject].present?
       if params[:subject] == "All"
         @users = User.all
@@ -10,7 +11,6 @@ class UsersController < ApplicationController
         @users = @users.where(subject: params[:subject])
       end
     end
-    @users = User.search(params[:query])
   end
 
   def create
