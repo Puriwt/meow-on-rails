@@ -27,9 +27,41 @@
         </div>
         <div class="end">
           <%= button_to 'Edit', edit_user_path(user), method: :get, class: "btn btn-edit" %>
-          <%= button_to 'Delete', user_path(user), method: :delete, data: { turbo_confirm: 'Are you sure to delete?' }, class: "btn btn-delete" %>
+          <button id="myBtn", class="btn btn-delete">Delete</button>
+        </div>
+      </div>
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Delete</h2>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure to delete?</p>
+          </div>
+          <div class="modal-footer">
+            <%= button_to 'Delete', user_path(user), method: :delete, class: "btn2 btn-delete" %>
+          </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+<script>
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
