@@ -394,8 +394,19 @@
   .search_bar{
     display: flex;
     flex-direction: row;
-    padding: 0 0 0 1rem;
     border-left: 1px solid #dddddd;
+
+  }
+
+  .search-input{
+    padding: 5px 20px;
+    border: none;
+    max-height: 27px;
+    border-radius: var(--radius-nomal);
+    cursor: pointer;
+    color: var(--primary);
+    background-color: #ffffff;
+    margin: 0 1rem;
   }
 
   .search-btn{
