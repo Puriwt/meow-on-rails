@@ -3,6 +3,13 @@ class UsersController < ApplicationController
     @sending = "Register Form"
     @users = User.all
     @user = User.new
+    if params[:subject].present?
+      if params[:subject] == "All"
+        @users = User.all
+      else
+        @users = @users.where(subject: params[:subject])
+      end
+    end
   end
 
   def create
