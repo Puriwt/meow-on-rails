@@ -61,7 +61,8 @@
     display: flex;
     justify-content: center;
     align-items: center; 
-    height: 100vh;      
+    height: 80vh;   
+    padding-top: 7rem;   
     width: 100%;
     animation: fadeinPop 0.7s;     
   }
