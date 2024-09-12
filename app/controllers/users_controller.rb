@@ -3,18 +3,9 @@ class UsersController < ApplicationController
     @sending = "Register Form"
     @users = User.all
     @user = User.new
-    
-    @users = @users.where(subject: "All")
-    @users = User.search(params[:query])
-    if params[:subject].present?
-      if params[:subject] == "All"
-        @users = User.all
-      else
-        @users = @users.where(subject: params[:subject])
-      end
-    end
+    @users = search_users(@users)
+    @users = filter_users_by_subject(@users)
   end
-
   def create
     @users = User.all
     @user = User.new(user_params)
@@ -24,7 +15,7 @@ class UsersController < ApplicationController
       render :index, status: :unprocessable_entity
     end
   end
-
+  
   def edit
     @users = User.all
     @user = User.find(params[:id])
@@ -64,6 +55,24 @@ class UsersController < ApplicationController
   end
 
   private
+  def search_users(users)
+    if params[:query].present?
+      users = User.search(params[:query])
+    end
+    users
+  end
+
+  def filter_users_by_subject(users)
+    if params[:subject].present?
+      if params[:subject] == "All"
+        users = User.all
+      else
+        users = users.where(subject: params[:subject])
+      end
+    end
+    users
+  end
+
   def user_params
     params.require(:user).permit(:first_name, :last_name, :birthdate, :gender, :email, :phone, :subject)
   end
