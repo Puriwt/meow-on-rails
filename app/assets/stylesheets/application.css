@@ -335,22 +335,8 @@
     from {top:-300px; opacity:0}
     to {top:0; opacity:1}
   }
-  
-  /* The Close Button */
-  .close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
+
+
   .modal-header {
     padding: 0 0 1rem 0;
     color: rgb(0, 0, 0);

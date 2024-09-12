@@ -50,7 +50,17 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to root_path, notice: "User deleted successfully!"
+    @users = User.all
+    respond_to do |format|
+      format.turbo_stream do
+        if @users.any?
+          render turbo_stream: turbo_stream.remove(@user)
+        else
+          render turbo_stream: turbo_stream.remove("card")
+        end
+      end
+      format.html { redirect_to users_path, notice: "User deleted successfully!" }
+    end
   end
 
   private

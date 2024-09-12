@@ -33,14 +33,13 @@
       <div id="myModal" class="modal">
         <div class="modal-content">
           <div class="modal-header">
-            <span class="close">&times;</span>
             <h2>Delete</h2>
           </div>
           <div class="modal-body">
             <p>Are you sure to delete?</p>
           </div>
           <div class="modal-footer">
-            <%= button_to 'Delete', user_path(user), method: :delete, class: "btn2 btn-delete" %>
+            <%= button_to 'Delete', user_path(user), method: :delete, class: "btn2 btn-delete close" %>
           </div>
         </div>
       </div>
