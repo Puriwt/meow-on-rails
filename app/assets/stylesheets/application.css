@@ -290,6 +290,16 @@
     background: var(--danger);
   }
 
+  .btn-cancel{
+    color: var(--secondary-hover);
+    border: var(--border) 1px solid;
+    background-color: var(--tertiary);
+  }
+
+  .btn-cancel:hover{
+    background: var(--tertiary-hover);
+  }
+
   .btn-delete:hover{
     background: var(--danger-hover);
   }
@@ -325,7 +335,6 @@
     animation-duration: 0.4s;
   }
   
-  /* Add Animation */
   @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0} 
     to {top:0; opacity:1}
@@ -335,7 +344,6 @@
     from {top:-300px; opacity:0}
     to {top:0; opacity:1}
   }
-
 
   .modal-header {
     padding: 0 0 1rem 0;
@@ -352,6 +360,7 @@
     margin: 2rem 0 0 0;
     padding: 2px 16px;
     color: rgb(0, 0, 0);
+    gap: 0.5rem;
   }
 
   .filter_button_group{
