@@ -38,9 +38,9 @@
           <div class="modal-body">
             <p>Are you sure to delete?</p>
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer" data_turbo_frame="users-container">
             <button class="btn2 btn-cancel", data-action="click->modal#hide">Cancel</button>
-            <%= button_to 'Delete', user_path(user), method: :delete, class: "btn2 btn-delete" %>
+            <%= button_to 'Delete', user_path(user), method: :delete, class: "btn2 btn-delete", data: { action: "click->modal#hide" }%>
           </div>
         </div>
       </div>

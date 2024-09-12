@@ -3,8 +3,8 @@
     <div id="form-container">
         <%= render "form" %>
     </div>
-    <%= render "filter_user"%>
-    <div id="users-container">
+    <turbo-frame id="users-container">
+        <%= render "filter_user"%>
         <%= render "users_list" %>
-    </div>
+    </turbo-frame>
 </div>

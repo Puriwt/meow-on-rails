@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @users = search_users(@users)
     @users = filter_users_by_subject(@users)
   end
+  
   def create
     @users = User.all
     @user = User.new(user_params)
