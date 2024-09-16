@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="end">
-          <%= button_to 'Edit', edit_user_path(user), method: :get, class: "btn btn-edit" %>
+          <%= button_to 'Edit', edit_user_path(user), method: :get, class: "btn btn-edit", data: {turbo_frame: 'form-container'} %>
           <button id="myBtn", class="btn btn-delete", data-action="click->modal#toggle">Delete</button>
         </div>
       </div>
