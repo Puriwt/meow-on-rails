@@ -54,7 +54,7 @@
     </div>
 
     <div class="form-group btn-group">
-        <%= form.submit @user.new_record? ? "Submit" : "Update", class: "btn-primary" %>
+        <%= form.submit @user.new_record? ? "Submit" : "Update", class: "btn-primary", data: {turbo_frame: 'full'} %>
         <%= button_to 'Cancel', '#', class: (@user.new_record? ? 'hidden' : 'btn-primary btn-delete') %>
     </div>
   </div>

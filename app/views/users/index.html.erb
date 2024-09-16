@@ -1,5 +1,5 @@
 <%= javascript_importmap_tags 'application' %>
-<div class="full">
+<turbo-frame class="full" id="full">
     <turbo-frame id="form-container">
         <%= render "form" %>
     </turbo-frame>
@@ -7,4 +7,4 @@
         <%= render "filter_user"%>
         <%= render "users_list" %>
     </turbo-frame>
-</div>
+</turbo-frame>

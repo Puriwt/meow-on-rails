@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       render :index, status: :unprocessable_entity
     end
   end
-  
+
   def edit
     @users = User.all
     @user = User.find(params[:id])
