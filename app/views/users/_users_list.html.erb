@@ -10,24 +10,24 @@
         <div class="body">
           <!-- User details -->
           <div class="body-group">
-            <div><span>Name : </span><p><%= user.first_name %></p></div>
-            <div><p><%= user.last_name %></p></div>
+            <div><span>Name : </span ><p data-testid='fName'><%= user.first_name %></p></div>
+            <div><p data-testid='lName'><%= user.last_name %></p></div>
           </div>
           <div class="body-group">
-            <div><span>Birthdate : </span><p><%= user.birthdate %></p></div>
-            <div><span>Email : </span><p><%= user.email %></p></div>
+            <div><span>Birthdate : </span><p data-testid='bDate'><%= user.birthdate %></p></div>
+            <div><span>Email : </span><p data-testid='email'><%= user.email %></p></div>
           </div>
           <div class="body-group">
-            <div><span>Phone number : </span><p><%= user.phone %></p></div>
-            <div><span>Gender : </span><p><%= user.gender %></p></div>
+            <div><span>Phone number : </span><p data-testid='phone'><%= user.phone %></p></div>
+            <div><span>Gender : </span><p data-testid='gender'><%= user.gender %></p></div>
           </div>
           <div class="body-group">
-            <div><span>Subject : </span><p><%= user.subject %></p></div>
+            <div><span>Subject : </span><p data-testid='subject'><%= user.subject %></p></div>
           </div>
         </div>
         <div class="end">
-          <%= button_to 'Edit', edit_user_path(user), method: :get, class: "btn btn-edit", data: {turbo_frame: 'form-container'} %>
-          <button id="myBtn", class="btn btn-delete", data-action="click->modal#toggle">Delete</button>
+          <%= button_to 'Edit', edit_user_path(user), method: :get, class: "btn btn-edit", data: {turbo_frame: 'form-container', testid: 'edit'} %>
+          <button id="myBtn ",data-testid="btn-delete" , class="btn btn-delete", data-action="click->modal#toggle">Delete</button>
         </div>
       </div>
       <div id="myModal" class="modal" data-modal-target="delModal">
@@ -39,8 +39,8 @@
             <p>Are you sure to delete?</p>
           </div>
           <div class="modal-footer" data_turbo_frame="users-container">
-            <button class="btn2 btn-cancel", data-action="click->modal#hide">Cancel</button>
-            <%= button_to 'Delete', user_path(user), method: :delete, class: "btn2 btn-delete", data: { action: "click->modal#hide" }%>
+            <button class="btn2 btn-cancel",data-testid='cancle', data-action="click->modal#hide">Cancel</button>
+            <%= button_to 'Delete', user_path(user), method: :delete, class: "btn2 btn-delete", data: { action: "click->modal#hide", testid: 'confirm-delete' }%>
           </div>
         </div>
       </div>

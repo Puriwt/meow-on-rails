@@ -35,9 +35,18 @@ export class RegistrationPage {
         await this.page.getByLabel('Last Name').fill('Input');
         await this.page.getByLabel('Birthdate').fill(pastDate);
         await this.page.getByLabel('Male', { exact: true }).check();
-        await this.page.getByLabel('Email').fill('valid@g.cat');
+        await this.page.getByLabel('Email').fill('email@g.cat');
         await this.page.locator('#phone_input').fill('098-765-4321');
         await this.page.getByLabel('Subject').selectOption('Science');
+    }
+
+    async cardAppeared(){
+        await expect(this.page.getByTestId('fName')).toHaveText('Valid');
+        await expect(this.page.getByTestId('lName')).toHaveText('Input');
+        await expect(this.page.getByTestId('email')).toHaveText('email@g.cat');
+        await expect(this.page.getByTestId('phone')).toHaveText('098-765-4321');
+        await expect(this.page.getByTestId('subject')).toHaveText('Science');
+        await expect(this.page.getByTestId('gender')).toHaveText('Male');
     }
 
     async submitForm(){
@@ -83,4 +92,22 @@ export class RegistrationPage {
     async seeSubmitForm() {
         await expect(this.page.getByRole('button', { name: 'Submit' })).toBeVisible();
     }
+
+    async deleteCard(){
+        await this.page.getByRole('button', { name: 'Delete' }).click();
+        await this.deleteModalAppeared();
+        await this.clickDeleteButton();
+    }
+
+    async deleteModalAppeared(){
+        await expect(this.page.getByRole('heading', { name: 'Delete' })).toBeVisible();
+        await expect(this.page.getByText('Are you sure to delete?')).toBeVisible();
+        await expect(this.page.getByRole('button', { name: 'Cancel' })).toBeVisible();
+        await expect(this.page.getByTestId('confirm-delete')).toBeVisible();
+    }
+
+    async clickDeleteButton(){
+        await this.page.getByTestId('confirm-delete').click();
+    }
+
 }
