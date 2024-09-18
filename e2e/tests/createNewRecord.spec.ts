@@ -2,6 +2,7 @@ import { test, expect, Page } from '@playwright/test';
 import { describe } from 'node:test';
 import { MainApplicationObject } from '../pageObject/mainApplication.spec';
 import { RegistrationPage } from '../pageObject/registration.spec';
+import { UsersList } from '../pageObject/usersList.spec';
 
 describe('Create new record.', () => {
 
@@ -9,15 +10,6 @@ describe('Create new record.', () => {
         const openApplication = new MainApplicationObject(page);
         await openApplication.firstTimeStartApp();
     })
-
-    // test.afterEach(async ({page}) => {
-    //     try{
-    //         const registerPage = new RegistrationPage(page);
-    //         await registerPage.deleteCard();
-    //     } catch(e){
-    //         closeApplication(page);
-    //     }
-    // })
 
     test('Invalid input', async ({page}) => {
         const registerPage = new RegistrationPage(page);
@@ -34,13 +26,12 @@ describe('Create new record.', () => {
 
     test('Create new record success', async ({page}) => {
         const registerPage = new RegistrationPage(page);
-        await registerPage.ValidInput();
+        const userList= new UsersList(page);
+        await registerPage.validInput();
         await registerPage.submitForm();
         await page.reload();       
-        await registerPage.cardAppeared();
+        await userList.cardAppeared();
+
+        await userList.deleteCard();
     })
 });
-
-function closeApplication(page: Page) {
-    throw new Error('Function not implemented.');
-}
