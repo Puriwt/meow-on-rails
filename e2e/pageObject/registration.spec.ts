@@ -1,4 +1,5 @@
 import { expect, Page } from "@playwright/test";
+import { UsersList } from "./usersList.spec";
 
 export class RegistrationPage {
     readonly page: Page
@@ -13,8 +14,11 @@ export class RegistrationPage {
     }
 
     async createRecord() {
+        const userList= new UsersList(this.page);
         await this.validInput();
         await this.submitForm();
+        await this.page.reload();
+        await userList.cardAppeared();
     }
 
     async invalidInput() {
@@ -43,6 +47,20 @@ export class RegistrationPage {
         await this.page.getByLabel('Email').fill('email@g.cat');
         await this.page.locator('#phone_input').fill('098-765-4321');
         await this.page.getByLabel('Subject').selectOption('Science');
+    }
+
+    async inputDataForm(fName: string, lName: string, birthDate :number, gender :string, email: string, phone: string, subject: string) {
+        const today = new Date();
+        today.setDate(today.getDate() - birthDate);
+        const pastDate = today.toISOString().split('T')[0];
+
+        await this.page.getByLabel('First Name').fill(fName);
+        await this.page.getByLabel('Last Name').fill(lName);
+        await this.page.getByLabel('Birthdate').fill(pastDate);
+        await this.page.getByLabel(gender, { exact: true }).check();
+        await this.page.getByLabel('Email').fill(email);
+        await this.page.locator('#phone_input').fill(phone);
+        await this.page.getByLabel('Subject').selectOption(subject);
     }
 
     async submitForm(){

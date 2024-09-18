@@ -29,7 +29,7 @@ describe('Create new record.', () => {
         const userList= new UsersList(page);
         await registerPage.validInput();
         await registerPage.submitForm();
-        await page.reload();       
+        await page.reload();
         await userList.cardAppeared();
 
         await userList.deleteCard();

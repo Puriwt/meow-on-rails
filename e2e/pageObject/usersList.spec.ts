@@ -15,6 +15,15 @@ export class UsersList{
         await expect(this.page.getByTestId('gender')).toHaveText('Male');
     }
 
+    async updateAppeared(){
+        await expect(this.page.getByTestId('fName')).toHaveText('Edit');
+        await expect(this.page.getByTestId('lName')).toHaveText('Data');
+        await expect(this.page.getByTestId('email')).toHaveText('editEmail@g.cat');
+        await expect(this.page.getByTestId('phone')).toHaveText('098-765-1234');
+        await expect(this.page.getByTestId('subject')).toHaveText('Computer Science');
+        await expect(this.page.getByTestId('gender')).toHaveText('Female');
+    }
+
     async deleteCard(){
         await this.page.getByRole('button', { name: 'Delete' }).click();
         await this.deleteModalAppeared();
@@ -30,5 +39,9 @@ export class UsersList{
 
     async clickDeleteButton(){
         await this.page.getByTestId('confirm-delete').click();
+    }
+
+    async clickEditButton(){
+        await this.page.getByTestId('edit').click();
     }
 }
