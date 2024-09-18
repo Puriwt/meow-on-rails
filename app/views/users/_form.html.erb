@@ -49,7 +49,7 @@
 
     <div class="form-group">
       <%= form.label :subject, "Subject", required: true %>
-      <%= form.select :subject, options_for_select([['Computer Science', 'Computer Science'],['Math', 'Math'], ['Science', 'Science'], ['Social Sciences', 'Social Sciences'], ['English', 'English']]), { prompt: 'Choose a subject' }, { class: "input-field" } %>
+      <%= form.select :subject, options_for_select([['Computer Science', 'Computer Science'], ['Math', 'Math'], ['Science', 'Science'], ['Social Sciences', 'Social Sciences'], ['English', 'English']], @user.subject), { prompt: 'Choose a subject' }, { class: "input-field" } %>
       <%= content_tag(:span, @user.errors.full_messages_for(:subject).first, class: "error-message") if @user.errors.any? %>
     </div>
 
