@@ -15,6 +15,16 @@ export class UsersList{
         await expect(this.page.getByTestId('gender')).toHaveText('Male');
     }
 
+    async allCardsAppeared(record :number){
+        await expect(this.page.getByTestId('subject')).toHaveCount(record);
+    }
+
+    async filterCardAppeared(lName :string, email :string, subject :string){
+        await expect(this.page.getByTestId('lName')).toHaveText(lName);
+        await expect(this.page.getByTestId('email')).toHaveText(email);
+        await expect(this.page.getByTestId('subject')).toHaveText(subject);
+    }
+
     async updateAppeared(){
         await expect(this.page.getByTestId('fName')).toHaveText('Edit');
         await expect(this.page.getByTestId('lName')).toHaveText('Data');

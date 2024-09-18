@@ -1,11 +1,11 @@
 <%= form_with url: users_path, method: :get, local: true, data: { turbo_frame: 'users-container' } do %>
   <div class="filter_button_group" >
-    <%= submit_tag 'All', name: :subject, value: 'All', class: "btn_filter #{'selected' if params[:subject] == 'All'}" %>
-    <%= submit_tag 'Computer Science', name: :subject, value: 'Computer Science', class: "btn_filter #{'selected' if params[:subject] == 'Computer Science'}" %>
-    <%= submit_tag 'Math', name: :subject, value: 'Math', class: "btn_filter #{'selected' if params[:subject] == 'Math'}" %>
-    <%= submit_tag 'Science', name: :subject, value: 'Science', class: "btn_filter #{'selected' if params[:subject] == 'Science'}" %>
-    <%= submit_tag 'Social Sciences', name: :subject, value: 'Social Sciences', class: "btn_filter #{'selected' if params[:subject] == 'Social Sciences'}" %>
-    <%= submit_tag 'English', name: :subject, value: 'English', class: "btn_filter #{'selected' if params[:subject] == 'English'}" %>
+    <%= submit_tag 'All', name: :subject, value: 'All', class: "btn_filter #{'selected' if params[:subject] == 'All'}", data: { testid: 'filter-all' } %>
+    <%= submit_tag 'Computer Science', name: :subject, value: 'Computer Science', class: "btn_filter #{'selected' if params[:subject] == 'Computer Science'}", data: { testid: 'filter-computer-science' } %>
+    <%= submit_tag 'Math', name: :subject, value: 'Math', class: "btn_filter #{'selected' if params[:subject] == 'Math'}", data: { testid: 'filter-math' } %>
+    <%= submit_tag 'Science', name: :subject, value: 'Science', class: "btn_filter #{'selected' if params[:subject] == 'Science'}", data: { testid: 'filter-science' } %>
+    <%= submit_tag 'Social Sciences', name: :subject, value: 'Social Sciences', class: "btn_filter #{'selected' if params[:subject] == 'Social Sciences'}", data: { testid: 'filter-social-sciences' } %>
+    <%= submit_tag 'English', name: :subject, value: 'English', class: "btn_filter #{'selected' if params[:subject] == 'English'}", data: { testid: 'filter-english' } %>
   <%= render "search_bar" %>
 <% end %>
 </div>

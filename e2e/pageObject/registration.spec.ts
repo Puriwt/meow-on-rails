@@ -1,5 +1,6 @@
 import { expect, Page } from "@playwright/test";
 import { UsersList } from "./usersList.spec";
+import { MainApplicationObject } from "./mainApplication.spec";
 
 export class RegistrationPage {
     readonly page: Page
@@ -61,6 +62,20 @@ export class RegistrationPage {
         await this.page.getByLabel('Email').fill(email);
         await this.page.locator('#phone_input').fill(phone);
         await this.page.getByLabel('Subject').selectOption(subject);
+    }
+
+    async generateRecordFillter(){
+        await this.generateRecord('Puri', 'Computer Science', 5, 'Male', 'comscience@g.com', '098-765-4321', 'Computer Science');
+        await this.generateRecord('Puri', 'Math', 5, 'Male', 'math@g.com', '098-765-4321', 'Math');
+        await this.generateRecord('Puri', 'Science', 5, 'Male', 'science@g.com', '098-765-4321', 'Science');
+        await this.generateRecord('Puri', 'Social Sciences', 5, 'Male', 'social@g.com', '098-765-4321', 'Social Sciences');
+        await this.generateRecord('Puri', 'English', 5, 'Male', 'english@g.com', '098-765-4321', 'English');
+    }
+
+    async generateRecord(fName: string, lName: string, birthDate :number, gender :string, email: string, phone: string, subject: string){
+        await this.inputDataForm(fName, lName, birthDate, gender, email, phone, subject);
+        await this.submitForm();
+        await this.page.reload();
     }
 
     async submitForm(){
