@@ -26,9 +26,6 @@ jobs:
       - name: Install playwright
         run: npx playwright install --with-deps
 
-      - name: cd into e2e folder
-        run: cd e2e
-
       - name: Run Playwright Tests
         run: npx playwright test --workers=1
         continue-on-error: true
