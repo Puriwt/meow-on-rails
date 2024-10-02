@@ -15,13 +15,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          node-version: '16'
+          ruby-version: '3.3.1'
+          bundler-cache: true
 
       - name: Install dependencies
-        run: npm install
+        run: bundle install
       
       - name: Install playwright
         run: npx playwright install --with-deps
