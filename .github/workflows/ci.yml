@@ -5,9 +5,58 @@ env:
 
 on:
   push:
-    branch: [main]
+    branches:
+      - main
 
 jobs:
+  e2e_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Install playwright
+        run: npx playwright install --with-deps
+
+      - name: cd into e2e folder
+        run: cd e2e
+
+      - name: Run Playwright Tests
+        run: npx playwright test --workers=1
+        continue-on-error: true
+
+      - name: Create zip file with Playwright report and test results
+        run: zip -r reports.zip playwright-report/ test-results/
+      
+      - name: Upload combined report
+        uses: actions/upload-artifact@v4
+        with:
+          name: combined-reports
+          path: reports.zip
+          retention-days: 30
+
+      - name: Publish Test Summary Results
+        run: npx github-actions-ctrf ctrf/ctrf-results.json
+
+      - name: Check test results from JSON
+        id: check-test-results
+        run: |
+          status=$(jq -r '.status' test-results/.last-run.json)
+          if [ "$status" == "failed" ]; then
+            echo "Tests failed"
+            exit 1
+          else
+            echo "Tests passed"
+          fi
+
   build:
     runs-on: ubuntu-latest
     steps:

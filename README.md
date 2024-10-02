@@ -13,6 +13,11 @@
 - rails secret
 - docker run -e SECRET_KEY_BASE=[secret_key] -e RAILS_ENV=development -p 3000:3000 [container_name]:latest
 
+# to use and install rspec-rails
+- gem 'rspec-rails', '~> 6.0' (add in Gemfile)
+- $ bundle install
+- $ rails generate rspec:install
+
 # init github
 - create your repository 
 - git init
